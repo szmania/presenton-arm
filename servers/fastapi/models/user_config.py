@@ -27,9 +27,19 @@ class UserConfig(BaseModel):
     CUSTOM_MODEL: Optional[str] = None
 
     # Image Provider
+    DISABLE_IMAGE_GENERATION: Optional[bool] = None
     IMAGE_PROVIDER: Optional[str] = None
     PEXELS_API_KEY: Optional[str] = None
     PIXABAY_API_KEY: Optional[str] = None
+
+    # ComfyUI
+    COMFYUI_URL: Optional[str] = None
+    COMFYUI_WORKFLOW: Optional[str] = None
+
+    # Dalle 3 Quality
+    DALL_E_3_QUALITY: Optional[str] = None
+    # Gpt Image 1.5 Quality
+    GPT_IMAGE_1_5_QUALITY: Optional[str] = None
 
     # Reasoning
     TOOL_CALLS: Optional[bool] = None
@@ -38,3 +48,10 @@ class UserConfig(BaseModel):
 
     # Web Search
     WEB_GROUNDING: Optional[bool] = None
+
+    # Codex OAuth (ChatGPT)
+    CODEX_MODEL: Optional[str] = None
+    CODEX_ACCESS_TOKEN: Optional[str] = None
+    CODEX_REFRESH_TOKEN: Optional[str] = None
+    CODEX_TOKEN_EXPIRES: Optional[str] = None
+    CODEX_ACCOUNT_ID: Optional[str] = None

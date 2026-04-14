@@ -46,20 +46,39 @@ export async function POST(request: Request) {
     OPENAI_MODEL: userConfig.OPENAI_MODEL || existingConfig.OPENAI_MODEL,
     GOOGLE_API_KEY: userConfig.GOOGLE_API_KEY || existingConfig.GOOGLE_API_KEY,
     GOOGLE_MODEL: userConfig.GOOGLE_MODEL || existingConfig.GOOGLE_MODEL,
-    ANTHROPIC_API_KEY: userConfig.ANTHROPIC_API_KEY || existingConfig.ANTHROPIC_API_KEY,
-    ANTHROPIC_MODEL: userConfig.ANTHROPIC_MODEL || existingConfig.ANTHROPIC_MODEL,
+    ANTHROPIC_API_KEY:
+      userConfig.ANTHROPIC_API_KEY || existingConfig.ANTHROPIC_API_KEY,
+    ANTHROPIC_MODEL:
+      userConfig.ANTHROPIC_MODEL || existingConfig.ANTHROPIC_MODEL,
     OLLAMA_URL: userConfig.OLLAMA_URL || existingConfig.OLLAMA_URL,
     OLLAMA_MODEL: userConfig.OLLAMA_MODEL || existingConfig.OLLAMA_MODEL,
     CUSTOM_LLM_URL: userConfig.CUSTOM_LLM_URL || existingConfig.CUSTOM_LLM_URL,
     CUSTOM_LLM_API_KEY:
       userConfig.CUSTOM_LLM_API_KEY || existingConfig.CUSTOM_LLM_API_KEY,
     CUSTOM_MODEL: userConfig.CUSTOM_MODEL || existingConfig.CUSTOM_MODEL,
+    DISABLE_IMAGE_GENERATION:
+      userConfig.DISABLE_IMAGE_GENERATION === undefined
+        ? existingConfig.DISABLE_IMAGE_GENERATION
+        : userConfig.DISABLE_IMAGE_GENERATION,
     PIXABAY_API_KEY:
       userConfig.PIXABAY_API_KEY || existingConfig.PIXABAY_API_KEY,
     IMAGE_PROVIDER: userConfig.IMAGE_PROVIDER || existingConfig.IMAGE_PROVIDER,
     PEXELS_API_KEY: userConfig.PEXELS_API_KEY || existingConfig.PEXELS_API_KEY,
-    TOOL_CALLS: userConfig.TOOL_CALLS === undefined ? existingConfig.TOOL_CALLS : userConfig.TOOL_CALLS,
-    DISABLE_THINKING: userConfig.DISABLE_THINKING === undefined ? existingConfig.DISABLE_THINKING : userConfig.DISABLE_THINKING,
+    COMFYUI_URL: userConfig.COMFYUI_URL || existingConfig.COMFYUI_URL,
+    COMFYUI_WORKFLOW:
+      userConfig.COMFYUI_WORKFLOW || existingConfig.COMFYUI_WORKFLOW,
+    DALL_E_3_QUALITY:
+      userConfig.DALL_E_3_QUALITY || existingConfig.DALL_E_3_QUALITY,
+    GPT_IMAGE_1_5_QUALITY:
+      userConfig.GPT_IMAGE_1_5_QUALITY || existingConfig.GPT_IMAGE_1_5_QUALITY,
+    TOOL_CALLS:
+      userConfig.TOOL_CALLS === undefined
+        ? existingConfig.TOOL_CALLS
+        : userConfig.TOOL_CALLS,
+    DISABLE_THINKING:
+      userConfig.DISABLE_THINKING === undefined
+        ? existingConfig.DISABLE_THINKING
+        : userConfig.DISABLE_THINKING,
     EXTENDED_REASONING:
       userConfig.EXTENDED_REASONING === undefined
         ? existingConfig.EXTENDED_REASONING
@@ -72,6 +91,11 @@ export async function POST(request: Request) {
       userConfig.USE_CUSTOM_URL === undefined
         ? existingConfig.USE_CUSTOM_URL
         : userConfig.USE_CUSTOM_URL,
+    CODEX_MODEL: userConfig.CODEX_MODEL || existingConfig.CODEX_MODEL,
+    CODEX_ACCESS_TOKEN: existingConfig.CODEX_ACCESS_TOKEN,
+    CODEX_REFRESH_TOKEN: existingConfig.CODEX_REFRESH_TOKEN,
+    CODEX_TOKEN_EXPIRES: existingConfig.CODEX_TOKEN_EXPIRES,
+    CODEX_ACCOUNT_ID: existingConfig.CODEX_ACCOUNT_ID,
   };
   fs.writeFileSync(userConfigPath, JSON.stringify(mergedConfig));
   return NextResponse.json(mergedConfig);

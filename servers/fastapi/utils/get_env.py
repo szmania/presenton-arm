@@ -73,6 +73,10 @@ def get_pexels_api_key_env():
     return os.getenv("PEXELS_API_KEY")
 
 
+def get_disable_image_generation_env():
+    return os.getenv("DISABLE_IMAGE_GENERATION")
+
+
 def get_image_provider_env():
     return os.getenv("IMAGE_PROVIDER")
 
@@ -95,3 +99,46 @@ def get_extended_reasoning_env():
 
 def get_web_grounding_env():
     return os.getenv("WEB_GROUNDING")
+
+
+def get_comfyui_url_env():
+    return os.getenv("COMFYUI_URL")
+
+
+def get_comfyui_workflow_env():
+    return os.getenv("COMFYUI_WORKFLOW")
+
+
+# Dalle 3 Quality
+def get_dall_e_3_quality_env():
+    return os.getenv("DALL_E_3_QUALITY")
+
+
+# Gpt Image 1.5 Quality
+def get_gpt_image_1_5_quality_env():
+    return os.getenv("GPT_IMAGE_1_5_QUALITY")
+
+
+# Codex OAuth
+def get_codex_access_token_env():
+    return os.getenv("CODEX_ACCESS_TOKEN")
+
+
+def get_codex_refresh_token_env():
+    return os.getenv("CODEX_REFRESH_TOKEN")
+
+
+def get_codex_token_expires_env():
+    return os.getenv("CODEX_TOKEN_EXPIRES")
+
+
+def get_codex_account_id_env():
+    return os.getenv("CODEX_ACCOUNT_ID")
+
+
+def get_codex_model_env():
+    return os.getenv("CODEX_MODEL")
+
+
+def get_migrate_database_on_startup_env():
+    return os.getenv("MIGRATE_DATABASE_ON_STARTUP")

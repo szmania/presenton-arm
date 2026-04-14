@@ -65,7 +65,7 @@ const setupUserConfigFromEnv = () => {
     existingConfig = JSON.parse(readFileSync(userConfigPath, "utf8"));
   }
 
-  if (!["ollama", "openai", "google"].includes(existingConfig.LLM)) {
+  if (!["ollama", "openai", "google", "anthropic", "custom", "codex"].includes(existingConfig.LLM)) {
     existingConfig.LLM = undefined;
   }
 
@@ -96,6 +96,18 @@ const setupUserConfigFromEnv = () => {
       process.env.EXTENDED_REASONING || existingConfig.EXTENDED_REASONING,
     WEB_GROUNDING: process.env.WEB_GROUNDING || existingConfig.WEB_GROUNDING,
     USE_CUSTOM_URL: process.env.USE_CUSTOM_URL || existingConfig.USE_CUSTOM_URL,
+    COMFYUI_URL: process.env.COMFYUI_URL || existingConfig.COMFYUI_URL,
+    COMFYUI_WORKFLOW:
+      process.env.COMFYUI_WORKFLOW || existingConfig.COMFYUI_WORKFLOW,
+    DALL_E_3_QUALITY:
+      process.env.DALL_E_3_QUALITY || existingConfig.DALL_E_3_QUALITY,
+    GPT_IMAGE_1_5_QUALITY:
+      process.env.GPT_IMAGE_1_5_QUALITY || existingConfig.GPT_IMAGE_1_5_QUALITY,
+    CODEX_MODEL: process.env.CODEX_MODEL || existingConfig.CODEX_MODEL,
+    CODEX_ACCESS_TOKEN: existingConfig.CODEX_ACCESS_TOKEN,
+    CODEX_REFRESH_TOKEN: existingConfig.CODEX_REFRESH_TOKEN,
+    CODEX_TOKEN_EXPIRES: existingConfig.CODEX_TOKEN_EXPIRES,
+    CODEX_ACCOUNT_ID: existingConfig.CODEX_ACCOUNT_ID,
   };
 
   writeFileSync(userConfigPath, JSON.stringify(userConfig));
@@ -138,7 +150,15 @@ const startServers = async () => {
 
   const nextjsProcess = spawn(
     "npm",
-    ["run", isDev ? "dev" : "start", "--", "-p", nextjsPort.toString()],
+    [
+      "run",
+      isDev ? "dev" : "start",
+      "--",
+      "-H",
+      "127.0.0.1",
+      "-p",
+      nextjsPort.toString(),
+    ],
     {
       cwd: nextjsDir,
       stdio: "inherit",

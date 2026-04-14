@@ -69,6 +69,10 @@ def set_pixabay_api_key_env(value):
     os.environ["PIXABAY_API_KEY"] = value
 
 
+def set_disable_image_generation_env(value):
+    os.environ["DISABLE_IMAGE_GENERATION"] = value
+
+
 def set_tool_calls_env(value):
     os.environ["TOOL_CALLS"] = value
 
@@ -83,3 +87,40 @@ def set_extended_reasoning_env(value):
 
 def set_web_grounding_env(value):
     os.environ["WEB_GROUNDING"] = value
+
+
+def set_comfyui_url_env(value):
+    os.environ["COMFYUI_URL"] = value
+
+
+def set_comfyui_workflow_env(value):
+    os.environ["COMFYUI_WORKFLOW"] = value
+
+
+def set_dall_e_3_quality_env(value):
+    os.environ["DALL_E_3_QUALITY"] = value
+
+
+def set_gpt_image_1_5_quality_env(value):
+    os.environ["GPT_IMAGE_1_5_QUALITY"] = value
+
+
+# Codex OAuth
+def set_codex_access_token_env(value: str):
+    os.environ["CODEX_ACCESS_TOKEN"] = value
+
+
+def set_codex_refresh_token_env(value: str):
+    os.environ["CODEX_REFRESH_TOKEN"] = value
+
+
+def set_codex_token_expires_env(value: str):
+    os.environ["CODEX_TOKEN_EXPIRES"] = value
+
+
+def set_codex_account_id_env(value: str):
+    os.environ["CODEX_ACCOUNT_ID"] = value
+
+
+def set_codex_model_env(value: str):
+    os.environ["CODEX_MODEL"] = value
