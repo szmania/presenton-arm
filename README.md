@@ -172,19 +172,15 @@ Run Presenton directly in your browser — no installation, no setup required. S
 
 **Option 2: Docker**
 
-##### Build for Linux (arm64):
-```bash
-docker-compose -f docker-compose-arm.yml up --build`
-`
-
-without GPU:
-```bash
-docker-compose -f docker-compose-arm-cpu.yml up --build`
-```
-
 - Start Presenton
   Linux/MacOS (Bash/Zsh Shell):
   <pre><code class="language-bash">docker run -it --name presenton -p 5000:80 -v "./app_data:/app_data" ghcr.io/presenton/presenton:latest</code></pre>
+  
+  Linux (arm64):
+  <pre><code class="language-bash">docker-compose -f docker-compose-arm.yml up --build</code></pre>
+  Without GPU:
+  <pre><code class="language-bash">docker-compose -f docker-compose-arm-cpu.yml up --build</code></pre>
+
 
   Windows (PowerShell):
   <pre><code class="language-bash">docker run -it --name presenton -p 5000:80 -v "${PWD}\app_data:/app_data" ghcr.io/presenton/presenton:latest</code></pre>
